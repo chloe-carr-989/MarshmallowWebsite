@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360">
+  <!-- ground -->
+  <rect x="0" y="295" width="500" height="65" fill="#c0d4a0"/>
+  <!-- foreground hills -->
+  <ellipse cx="90" cy="296" rx="110" ry="22" fill="#a8c285"/>
+  <ellipse cx="420" cy="296" rx="100" ry="20" fill="#a8c285"/>
+  <!-- mountain -->
+  <polygon points="55,295 250,68 445,295" fill="#b0c4a8" stroke="#2a2a2a" stroke-width="4" stroke-linejoin="round"/>
+  <!-- snow cap -->
+  <polygon points="212,122 250,68 288,122 268,114 250,90 232,114" fill="#faf8f4" stroke="#2a2a2a" stroke-width="3" stroke-linejoin="round"/>
+  <!-- sun -->
+  <circle cx="408" cy="88" r="38" fill="#f0d070" stroke="#2a2a2a" stroke-width="3"/>
+  <!-- sun rays -->
+  <line x1="408" y1="38" x2="408" y2="22" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="445" y1="53" x2="457" y2="41" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="458" y1="88" x2="474" y2="88" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="445" y1="123" x2="457" y2="135" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="371" y1="53" x2="359" y2="41" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="358" y1="88" x2="342" y2="88" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="371" y1="123" x2="359" y2="135" stroke="#2a2a2a" stroke-width="3" stroke-linecap="round"/>
+</svg>
