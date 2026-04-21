@@ -26,9 +26,24 @@ html, body {
 }
 
 .slide-inner {
+    position: relative;
     max-width: 640px;
     margin: 0 auto;
     padding: 80px 28px 120px;
+}
+
+/* --- story image pair --- */
+
+.story-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto 1em;
+}
+
+.story-pair img {
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    object-fit: contain;
 }
 
 /* --- transition states (set/removed by JS) --- */
@@ -114,47 +129,39 @@ html, body {
     color: #555;
 }
 
-/* --- study box --- */
-
-.study-box {
-    border: 2px solid #2a2a2a;
-    padding: 24px 28px;
-    margin: 1.5em 0;
-}
-
-.study-box p {
-    margin-bottom: 1em;
-}
-
-.study-box p:last-child {
-    margin-bottom: 0;
-}
-
 /* --- two-column grid --- */
 
 .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 1em 0;
+    gap: 2rem;
+    margin: 1.2em 0;
+    align-items: start;
 }
 
 .two-col > div {
-    padding: 14px 16px;
     text-align: center;
 }
 
-.two-col > div:first-child {
-    border-right: 1px solid #2a2a2a;
-}
-
 .two-col p {
-    margin-bottom: 0;
+    margin-bottom: 0.9em;
     font-size: 19px;
 }
 
 .two-col strong {
     display: block;
     margin-bottom: 0.3em;
+}
+
+.debug-page-num {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    font-size: 42px;
+    line-height: 1;
+    color: #2a2a2a;
+    pointer-events: none;
+    user-select: none;
 }
 
 /* --- footnote --- */

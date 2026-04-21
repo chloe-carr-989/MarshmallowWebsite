@@ -109,3 +109,4 @@ document.getElementById('skip-btn').addEventListener('click', () => {
     const resultIndex = slides.findIndex(s => s.id === 'slide-4');
     goTo(resultIndex, 'forward');
 });
+
