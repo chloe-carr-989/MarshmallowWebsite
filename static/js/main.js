@@ -31,7 +31,7 @@ function updateStoryImages(slideEl) {
         storyImages.classList.add('visible');
     } else if (tip) {
         placeStoryImages(tipHost);
-        storyImgA.src = `/static/img/final_three/${tip}.svg`;
+        storyImgA.src = `/static/img/final_three/color1.png`;
         storyImgB.style.display = 'none';
         if ('btnRestart' in slideEl.dataset) {
             storyBtn.innerHTML = '&#8634;';
@@ -64,7 +64,7 @@ function goTo(index, direction) {
     const from = slides[current];
     const to = slides[index];
     updateStoryImages(to);
-    if (to.id === 'slide-3') { adVideo.currentTime = 0; adVideo.play().catch(() => {}); startSkipCountdown(); }
+    if (to.id === 'slide-3') { startAdTimer(); adVideo.currentTime = 0; adVideo.play().catch(() => {}); startSkipCountdown(); }
     if (from.id === 'slide-3') { clearInterval(skipCountdown); }
 
     const enterFrom = direction === 'forward' ? 'enter-from-right' : 'enter-from-left';
@@ -172,9 +172,10 @@ updateBackBtn();
 document.getElementById('skip-btn').addEventListener('click', () => {
     adVideo.pause();
 
-    const elapsed = (Date.now() - adStart) / 1000;
+    const elapsed = adStart ? (Date.now() - adStart) / 1000 : 0;
+
     const display = elapsed < 60
-        ? elapsed.toFixed(1) + ' seconds'
+        ? Math.round(elapsed) + ' seconds'
         : (elapsed / 60).toFixed(1) + ' minutes';
 
     document.getElementById('waited-time').textContent = display;

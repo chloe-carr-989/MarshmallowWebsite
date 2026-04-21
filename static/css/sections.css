@@ -36,7 +36,7 @@ html, body {
 
 #story-images {
     position: fixed;
-    top: 260px;
+    top: 300px;
     left: 50%;
     transform: translateX(-50%);
     width: min(640px, 100vw);
@@ -304,4 +304,42 @@ html, body {
 .slide[data-tip] p,
 .slide[data-tip] h3 {
     text-align: right;
+}
+
+/* --- final slides layout (14–16) --- */
+
+.final-layout {
+    max-width: 1100px !important;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* image (left side) */
+.final-image {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.final-image img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+}
+
+/* text (right side) */
+.final-layout .tip {
+    text-align: center;
+}
+
+.final-layout h3,
+.final-layout p {
+    text-align: center;
+}
+
+/* button under text on right */
+.final-layout .continue-btn {
+    margin-top: 1.5em;
+    margin-left: auto;
 }
