@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Marshmallow Experiment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/sections.css">
+</head>
+<body>
+
+<div class="stage">
+
+    <!-- 1: Introduction -->
+    <section class="slide active" id="slide-1">
+        <div class="slide-inner">
+            <p>In the 1970s, the famous Stanford marshmallow experiment found that children able to delay gratification (demonstrated by waiting 15 minutes to get two treats instead of one) would later be more academically and socially competent, earned higher SAT scores, and had better stress management.</p>
+            <p>It was a critical study and proved that self-control is a fundamental skill that, if developed early, leads into lifelong success. It promoted the idea that if you worked hard enough and had enough willpower, you would be successful.</p>
+            <button class="continue-btn" data-next="slide-2">...Or did it? &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 2: Ad break warning -->
+    <section class="slide" id="slide-2">
+        <div class="slide-inner">
+            <p>Before we talk about it, we're now getting to an ad break. Feel free to skip it, but know that if you watch through the full minute long ad, you'll receive 100 dollars deposited right into your bank account! See you soon!</p>
+            <button class="continue-btn" id="okay-btn" data-next="slide-3">Okay &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 3: The ad -->
+    <section class="slide" id="slide-3">
+        <div class="slide-inner">
+            <div class="ad-box">
+                <p class="ad-label">(ad)</p>
+                <div class="ad-timer"><span id="ad-seconds">0.0</span>s</div>
+                <button class="skip-btn" id="skip-btn">Skip &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4: Ad result -->
+    <section class="slide" id="slide-4">
+        <div class="slide-inner">
+            <p>So, you only waited <span id="waited-time">a moment</span> before you pressed the skip button.</p>
+            <p>But it's not because you're unable to wait another minute to receive 100 dollars. Instead it was because <a>you didn't believe it would happen if you had waited</a>. This is the exact finding of a paper titled "Rational Snacking", one of many that revisited the Stanford Marshmallow Experiment.</p>
+            <button class="continue-btn" data-next="slide-5">Tell me more &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 5: Rational Snacking -->
+    <section class="slide" id="slide-5">
+        <div class="slide-inner">
+            <p>In the Rational Snacking study, researchers split 28 children into one of two groups: reliable and unreliable. In both cases, the child was given a jar of crayons. The researcher told the child that if they waited 2.5 minutes without opening the jar, they would be back with a box of cool art supplies. The jar was tightly sealed, so every child chose to wait.</p>
+            <div class="img-row">
+                <img class="slide-img" src="/static/img/1.png" alt="">
+                <img class="slide-img" src="/static/img/2.png" alt="">
+            </div>
+            <button class="continue-btn" data-next="slide-5b">Continue &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 5b: Reliable/unreliable outcomes -->
+    <section class="slide" id="slide-5b">
+        <div class="slide-inner">
+            <div class="study-box">
+                <div class="two-col">
+                    <div>
+                        <strong>Reliable</strong>
+                        <p>The researcher returned with a large tray of cool art supplies.</p>
+                        <img class="slide-img" src="/static/img/3.png" alt="">
+                    </div>
+                    <div>
+                        <strong>Unreliable</strong>
+                        <p>The researcher returned empty-handed and helped the child open the jar.</p>
+                        <img class="slide-img" src="/static/img/4.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="continue-btn" data-next="slide-5c">Continue &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 5c: Sticker phase -->
+    <section class="slide" id="slide-5c">
+        <div class="slide-inner">
+            <p>The same process was repeated with stickers instead of art supplies.</p>
+            <div class="img-row">
+                <img class="slide-img" src="/static/img/5.png" alt="">
+                <img class="slide-img" src="/static/img/6.png" alt="">
+                <img class="slide-img" src="/static/img/7.png" alt="">
+                <img class="slide-img" src="/static/img/8.png" alt="">
+            </div>
+            <button class="continue-btn" data-next="slide-5d">Continue &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 5d: Marshmallow task -->
+    <section class="slide" id="slide-5d">
+        <div class="slide-inner">
+            <p>After being shown evidence that the researcher was reliable or unreliable, the child was presented with the marshmallow task: either immediately eat the marshmallow, or wait until the researcher got back with another.</p>
+            <img class="slide-img" src="/static/img/9.png" alt="">
+            <p>Take a minute to consider - which group of children would you expect to have waited longer? And by how much?</p>
+            <button class="continue-btn" data-next="slide-6">Show me &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 6: Results -->
+    <section class="slide" id="slide-6">
+        <div class="slide-inner">
+            <div class="study-box">
+                <div class="two-col">
+                    <div>
+                        <strong>Reliable</strong>
+                        <p>9 out of 14 children (64.3%) waited the full 15 minutes.</p>
+                        <img class="slide-img" src="/static/img/10.png" alt="">
+                    </div>
+                    <div>
+                        <strong>Unreliable</strong>
+                        <p>Only 1 out of 14 children (7.1%) waited the full 15 minutes.</p>
+                        <img class="slide-img" src="/static/img/11.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <p class="small-note">(Unrelated to the findings of the experiment, every child was debriefed and received 3 marshmallows after the experiment, regardless of whether they waited or not.)</p>
+            <button class="continue-btn" data-next="slide-7">Aw :) &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 7: What this means + pivot -->
+    <section class="slide" id="slide-7">
+        <div class="slide-inner">
+            <p>These findings show that self-control is not the only factor behind the marshmallow experiment - children rationally chose not to wait based on their previous experiences.</p>
+            <p>But that doesn't address the original Stanford experiment. What are the factors behind it, and why would it be correlated with success later in life? There's something more than just whether or not the child believes they'll receive another marshmallow.</p>
+            <button class="continue-btn" data-next="slide-8">Let's find out &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 8: Follow-up study, no controls -->
+    <section class="slide" id="slide-8">
+        <div class="slide-inner">
+            <p>In another follow-up experiment, researchers repeated the original marshmallow experiment with a much larger sample size, this time checking for potential confounding variables.</p>
+            <p>Without controlling for anything, the initial correlation between waiting and achievement at age 15 was moderate and statistically significant:</p>
+            <div class="stat-block">
+                <span class="beta">Î² = 0.24, p &lt; .001</span>
+            </div>
+            <button class="continue-btn" data-next="slide-9">Continue &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 9: Background controls -->
+    <section class="slide" id="slide-9">
+        <div class="slide-inner">
+            <p>When controls for child background and home environment were added, the correlation fell substantially:</p>
+            <div class="stat-block">
+                <span class="beta">Î² = 0.08, p = .016</span>
+            </div>
+            <p>Statistically significant factors included whether the home environment was organized and had learning materials, whether parents modeled good behavior and responded to the child's needs, and whether the child had diverse daily experiences.</p>
+            <button class="continue-btn" data-next="slide-10">Continue &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 10: Cognitive controls -->
+    <section class="slide" id="slide-10">
+        <div class="slide-inner">
+            <p>When controls for cognitive ability were added, the correlation became nonsignificant:</p>
+            <div class="stat-block">
+                <span class="beta">Î² = 0.05, p = .140</span>
+            </div>
+            <p>The researchers also found that the marshmallow test had a higher correlation with cognitive ability than with self-control, attention, or impulsivity.</p>
+            <button class="continue-btn" data-next="slide-11">So, what does this mean? &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 11: Conclusion -->
+    <section class="slide" id="slide-11">
+        <div class="slide-inner">
+            <p>Contrary to the initial findings, this study shows that basic cognitive ability is a stronger predictor of future success than pure self-control.</p>
+            <p>This means children who grow up with <a>more exposure to learning opportunities and environmental stability</a> are more likely to understand the link between their actions and outcomes - making it easier for them to wait.</p>
+            <button class="continue-btn" data-next="slide-12">Continue &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 12: Children / original intent -->
+    <section class="slide" id="slide-12">
+        <div class="slide-inner">
+            <p>While children don't have much control over their learning opportunities and environment, later on in life there are cognitive skills and ways of framing situations that make delaying gratification - and making better decisions in general - easier.</p>
+            <p>In fact, the point of the original Stanford marshmallow experiment wasn't just that children with early self-control would go on to live better lives. It was actually a series of experiments investigating <a>mental strategies for the purpose of delaying gratification</a>. The researchers found children could wait a long time if they believed they really would get their treat, weren't thinking about the marshmallow, and occupied themselves with happy thoughts or toys.</p>
+            <button class="continue-btn" data-next="slide-13">Interesting &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 13: Self-control still matters -->
+    <section class="slide" id="slide-13">
+        <div class="slide-inner">
+            <p>It's undeniable that the ability to exert self-control and delay gratification is an important skill to have in life, regardless of what early experiences may indicate. Countless decisions in our daily lives require us to let go of immediate comfort to work towards long-term goals.</p>
+            <p>Going to sleep early instead of staying up playing video games. Talking with someone new instead of staying comfortable. Sitting down to work instead of procrastinating. Being able to make these decisions is becoming more and more important, with youtube, video games, and social media becoming increasingly accessible and engaging.</p>
+            <p>And so, as adults, how can we improve our ability to delay gratification?</p>
+            <button class="continue-btn" data-next="slide-14">I'm so excited &rarr;</button>
+        </div>
+    </section>
+
+    <!-- 14: Tip - small risks -->
+    <section class="slide" id="slide-14">
+        <div class="slide-inner">
+            <div class="tip">
+                <h3>Start with small risks:</h3>
+                <p>When you go to sleep early and wake up feeling better, make a mental note that this is the result of you choosing to sleep early. Build your own evidence that the wait is worth it.</p>
+            </div>
+            <button class="continue-btn" data-next="slide-15">&rarr;</button>
+        </div>
+    </section>
+
+    <!-- 15: Tip - new environment -->
+    <section class="slide" id="slide-15">
+        <div class="slide-inner">
+            <div class="tip">
+                <h3>Try a new environment:</h3>
+                <p>Changing your surroundings removes familiar cues that pull you toward immediate rewards. A library, a cafe, a different room - small shifts can make a big difference.</p>
+            </div>
+            <button class="continue-btn" data-next="slide-16">&rarr;</button>
+        </div>
+    </section>
+
+    <!-- 16: Tip - enjoy the process -->
+    <section class="slide" id="slide-16">
+        <div class="slide-inner">
+            <div class="tip">
+                <h3>Find ways to enjoy the process:</h3>
+                <p>The more genuinely enjoyable the work itself feels, the less you have to rely on willpower alone. The marshmallow gets a lot easier to resist when you're already having fun.</p>
+            </div>
+            <button class="continue-btn restart-btn" id="restart-btn">&#8634;</button>
+        </div>
+    </section>
+
+</div><!-- .stage -->
+
+<button class="back-btn" id="back-btn">&larr; back</button>
+
+<script src="/static/js/main.js"></script>
+</body>
+</html>
