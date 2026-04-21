@@ -36,7 +36,7 @@ html, body {
 
 #story-images {
     position: fixed;
-    bottom: 60px;
+    top: 260px;
     left: 50%;
     transform: translateX(-50%);
     width: min(640px, 100vw);
@@ -50,17 +50,27 @@ html, body {
 
 #story-images.visible {
     visibility: visible;
+    pointer-events: auto;
 }
 
 #story-images img {
     width: 100%;
     aspect-ratio: 5 / 6;
     object-fit: contain;
-    max-height: 42vh;
+    max-height: 38vh;
 }
 
-[data-pair] > .slide-inner {
-    padding-bottom: calc(42vh + 80px);
+#story-btn {
+    grid-column: 1 / -1;
+    margin-top: 1em;
+}
+
+#story-images.single #story-img-a {
+    grid-column: 1 / -1;
+    width: 72%;
+    max-height: 38vh;
+    justify-self: center;
+    aspect-ratio: 500 / 360;
 }
 
 /* --- transition states (set/removed by JS) --- */
@@ -105,7 +115,7 @@ html, body {
     border: none;
     font-family: 'Patrick Hand', cursive;
     font-size: 18px;
-    color: #aaa;
+    color: #888;
     cursor: pointer;
     padding: 4px 8px;
     opacity: 0;
@@ -123,27 +133,13 @@ html, body {
     color: #2a2a2a;
 }
 
-/* --- ad box --- */
-
-.ad-box {
-    border: 2px dashed #aaa;
-    border-radius: 4px;
-    padding: 48px 32px;
-    text-align: center;
-    background: #f0eeea;
-}
-
-.ad-label {
-    font-size: 22px;
-    color: #999;
-    margin-bottom: 0.5em;
-}
-
-.ad-timer {
-    font-size: 52px;
-    line-height: 1.2;
-    margin: 0.3em 0 0.8em;
-    color: #555;
+#ad-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1920 / 972;
+    border-radius: 2px;
+    margin-bottom: 1em;
+    background: #222;
 }
 
 /* --- two-column grid --- */
@@ -170,16 +166,8 @@ html, body {
     margin-bottom: 0.3em;
 }
 
-.debug-page-num {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    font-size: 42px;
-    line-height: 1;
-    color: #2a2a2a;
-    pointer-events: none;
-    user-select: none;
-}
+
+.nowrap { white-space: nowrap; }
 
 /* --- footnote --- */
 
