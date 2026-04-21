@@ -1,0 +1,228 @@
+/* --- full-page stage --- */
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.stage {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    /* no transition by default — JS adds it only during a nav */
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 28px 120px;
+}
+
+/* --- transition states (set/removed by JS) --- */
+
+/* outgoing */
+.slide.exit-left  { opacity: 0; transform: translateX(-20px); }
+.slide.exit-right { opacity: 0; transform: translateX( 20px); }
+
+/* incoming — starting position before animation (opacity overrides .active) */
+.slide.enter-from-right { transform: translateX(20px);  opacity: 0; }
+.slide.enter-from-left  { transform: translateX(-20px); opacity: 0; }
+
+/* --- buttons --- */
+
+.continue-btn,
+.skip-btn {
+    display: block;
+    margin: 2em auto 0;
+    background: none;
+    border: 2px solid #2a2a2a;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    padding: 7px 26px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.continue-btn:hover,
+.skip-btn:hover {
+    background: #2a2a2a;
+    color: #faf8f4;
+}
+
+/* --- back button (fixed, bottom-left) --- */
+
+.back-btn {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    background: none;
+    border: none;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 18px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 4px 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, color 0.15s;
+    z-index: 10;
+}
+
+.back-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-btn:hover {
+    color: #2a2a2a;
+}
+
+/* --- ad box --- */
+
+.ad-box {
+    border: 2px dashed #aaa;
+    border-radius: 4px;
+    padding: 48px 32px;
+    text-align: center;
+    background: #f0eeea;
+}
+
+.ad-label {
+    font-size: 22px;
+    color: #999;
+    margin-bottom: 0.5em;
+}
+
+.ad-timer {
+    font-size: 52px;
+    line-height: 1.2;
+    margin: 0.3em 0 0.8em;
+    color: #555;
+}
+
+/* --- study box --- */
+
+.study-box {
+    border: 2px solid #2a2a2a;
+    padding: 24px 28px;
+    margin: 1.5em 0;
+}
+
+.study-box p {
+    margin-bottom: 1em;
+}
+
+.study-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- two-column grid --- */
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1em 0;
+}
+
+.two-col > div {
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.two-col > div:first-child {
+    border-right: 1px solid #2a2a2a;
+}
+
+.two-col p {
+    margin-bottom: 0;
+    font-size: 19px;
+}
+
+.two-col strong {
+    display: block;
+    margin-bottom: 0.3em;
+}
+
+/* --- footnote --- */
+
+.small-note {
+    font-size: 17px;
+    color: #777;
+    text-align: center;
+    margin-top: 1.4em;
+}
+
+/* --- stat callout --- */
+
+.stat-block {
+    text-align: center;
+    margin: 1.2em 0;
+    padding: 12px;
+}
+
+.stat-block .beta {
+    font-size: 28px;
+}
+
+/* --- doodles --- */
+
+.slide-img {
+    display: block;
+    margin: 1em auto 0;
+    max-width: 180px;
+    width: 45%;
+}
+
+/* side-by-side image pairs */
+.img-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin: 1em 0 0;
+}
+
+.img-row .slide-img {
+    margin: 0;
+    width: 22%;
+    max-width: 120px;
+}
+
+/* images inside two-col columns */
+.two-col .slide-img {
+    width: 70%;
+    max-width: 120px;
+}
+
+/* --- tips --- */
+
+.tips {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2em;
+    margin-top: 1em;
+}
+
+.tip {
+    text-align: center;
+}
+
+.tip p {
+    font-size: 19px;
+    color: #555;
+    margin-top: 0.3em;
+    margin-bottom: 0;
+}
