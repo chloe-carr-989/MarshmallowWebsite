@@ -14,7 +14,7 @@
 <div class="stage">
 
     <!-- 1: Introduction -->
-    <section class="slide active" id="slide-1">
+    <section class="slide" id="slide-1">
         <div class="slide-inner">
             <p>In the 1970s, the famous Stanford marshmallow experiment found that children able to delay gratification (demonstrated by waiting 15 minutes to get two treats instead of one) would later be more academically and socially competent, earned higher SAT scores, and had better stress management.</p>
             <p>It was a critical study and proved that self-control is a fundamental skill that, if developed early, leads into lifelong success. It promoted the idea that if you worked hard enough and had enough willpower, you would be successful.</p>
@@ -51,65 +51,45 @@
     </section>
 
     <!-- 5: Rational Snacking -->
-    <section class="slide" id="slide-5">
+    <section class="slide active" id="slide-5" data-pair="1">
         <div class="slide-inner">
             <div class="debug-page-num">1</div>
-            <div class="story-pair">
-                <img src="/static/img/aligned/1a.png" alt="">
-                <img src="/static/img/aligned/1b.png" alt="">
-            </div>
             <p>In the Rational Snacking study, researchers split 28 children into one of two groups: reliable and unreliable. In both cases, the child was given a jar of crayons. The researcher told the child that if they waited 2.5 minutes without opening the jar, they would be back with a box of cool art supplies.</p>
             <button class="continue-btn" data-next="slide-5a">Continue &rarr;</button>
         </div>
     </section>
 
     <!-- 5a: Tightened jar line -->
-    <section class="slide" id="slide-5a">
+    <section class="slide" id="slide-5a" data-pair="2">
         <div class="slide-inner">
             <div class="debug-page-num">2</div>
-            <div class="story-pair">
-                <img src="/static/img/aligned/2a.png" alt="">
-                <img src="/static/img/aligned/2b.png" alt="">
-            </div>
             <p>The jar was tightly sealed, so every child chose to wait.</p>
             <button class="continue-btn" data-next="slide-5b">Continue &rarr;</button>
         </div>
     </section>
 
     <!-- 5b: Reliable/unreliable outcomes -->
-    <section class="slide" id="slide-5b">
+    <section class="slide" id="slide-5b" data-pair="3">
         <div class="slide-inner">
             <div class="debug-page-num">3</div>
-            <div class="story-pair">
-                <img src="/static/img/aligned/3a.png" alt="">
-                <img src="/static/img/aligned/3b.png" alt="">
-            </div>
             <p>In the reliable condition, the researcher returned with a large tray of cool art supplies. In the unreliable condition, the researcher returned empty-handed, explaining that there weren't other art supplies after all, and helped the child open the jar.</p>
             <button class="continue-btn" data-next="slide-5c">Continue &rarr;</button>
         </div>
     </section>
 
     <!-- 5c: Sticker phase -->
-    <section class="slide" id="slide-5c">
+    <section class="slide" id="slide-5c" data-pair="4">
         <div class="slide-inner">
             <div class="debug-page-num">4</div>
-            <div class="story-pair">
-                <img src="/static/img/aligned/4a.png" alt="">
-                <img src="/static/img/aligned/4b.png" alt="">
-            </div>
             <p>The same process was repeated with stickers instead of art supplies.</p>
             <button class="continue-btn" data-next="slide-5d">Continue &rarr;</button>
         </div>
     </section>
 
     <!-- 5d: Marshmallow task -->
-    <section class="slide" id="slide-5d">
+    <section class="slide" id="slide-5d" data-pair="5">
         <div class="slide-inner">
             <div class="debug-page-num">5</div>
-            <div class="story-pair">
-                <img src="/static/img/aligned/5a.png" alt="">
-                <img src="/static/img/aligned/5b.png" alt="">
-            </div>
             <p>After being shown evidence that the researcher was reliable or unreliable, the child was presented with the marshmallow task: either immediately eat the marshmallow, or wait until the researcher got back with another.</p>
             <p>Take a minute to consider - which group of children would you expect to have waited longer? And by how much?</p>
             <button class="continue-btn" data-next="slide-6">Show me &rarr;</button>
@@ -117,13 +97,9 @@
     </section>
 
     <!-- 6: Results -->
-    <section class="slide" id="slide-6">
+    <section class="slide" id="slide-6" data-pair="6">
         <div class="slide-inner">
             <div class="debug-page-num">6</div>
-            <div class="story-pair">
-                <img src="/static/img/aligned/6a.png" alt="">
-                <img src="/static/img/aligned/6b.png" alt="">
-            </div>
             <p>In the reliable condition, 9 out of 14 children (64.3%) waited the full 15 minutes. In the unreliable condition, only 1 out of 14 children (7.1%) waited the full 15 minutes.</p>
             <p class="small-note">(Unrelated to the findings of the experiment, every child was debriefed and received 3 marshmallows after the experiment, regardless of whether they waited or not.)</p>
             <button class="continue-btn" data-next="slide-7">Aw :) &rarr;</button>
@@ -237,6 +213,11 @@
     </section>
 
 </div><!-- .stage -->
+
+<div id="story-images">
+    <img id="story-img-a" src="" alt="">
+    <img id="story-img-b" src="" alt="">
+</div>
 
 <button class="back-btn" id="back-btn">&larr; back</button>
 

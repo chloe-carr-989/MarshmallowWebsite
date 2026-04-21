@@ -1,7 +1,21 @@
 const slides = Array.from(document.querySelectorAll('.slide'));
 const backBtn = document.getElementById('back-btn');
-let current = 0;
+const storyImages = document.getElementById('story-images');
+const storyImgA = document.getElementById('story-img-a');
+const storyImgB = document.getElementById('story-img-b');
+let current = 4;
 let busy = false;
+
+function updateStoryImages(slideEl) {
+    const pair = slideEl.dataset.pair;
+    if (pair) {
+        storyImgA.src = `/static/img/aligned/${pair}a.png`;
+        storyImgB.src = `/static/img/aligned/${pair}b.png`;
+        storyImages.classList.add('visible');
+    } else {
+        storyImages.classList.remove('visible');
+    }
+}
 
 function goTo(index, direction) {
     if (busy || index === current) return;
@@ -9,6 +23,7 @@ function goTo(index, direction) {
 
     const from = slides[current];
     const to = slides[index];
+    updateStoryImages(to);
 
     const enterFrom = direction === 'forward' ? 'enter-from-right' : 'enter-from-left';
     const exitTo    = direction === 'forward' ? 'exit-left'         : 'exit-right';
@@ -95,6 +110,8 @@ function startAdTimer() {
         document.getElementById('ad-seconds').textContent = s;
     }, 100);
 }
+
+updateStoryImages(slides[current]);
 
 document.getElementById('skip-btn').addEventListener('click', () => {
     clearInterval(adTick);

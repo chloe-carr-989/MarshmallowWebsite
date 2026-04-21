@@ -32,18 +32,35 @@ html, body {
     padding: 80px 28px 120px;
 }
 
-/* --- story image pair --- */
+/* --- story image pair (fixed, outside slide transitions) --- */
 
-.story-pair {
+#story-images {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(640px, 100vw);
+    padding: 0 28px;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 0 auto 1em;
+    pointer-events: none;
+    visibility: hidden;
 }
 
-.story-pair img {
+#story-images.visible {
+    visibility: visible;
+}
+
+#story-images img {
     width: 100%;
     aspect-ratio: 5 / 6;
     object-fit: contain;
+    max-height: 42vh;
+}
+
+[data-pair] > .slide-inner {
+    padding-bottom: calc(42vh + 80px);
 }
 
 /* --- transition states (set/removed by JS) --- */
