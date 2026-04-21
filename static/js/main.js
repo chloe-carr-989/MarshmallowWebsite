@@ -1,26 +1,36 @@
 const slides = Array.from(document.querySelectorAll('.slide'));
+const stage = document.querySelector('.stage');
 const backBtn = document.getElementById('back-btn');
 const storyImages = document.getElementById('story-images');
 const storyImgA = document.getElementById('story-img-a');
 const storyImgB = document.getElementById('story-img-b');
 const storyBtn = document.getElementById('story-btn');
-let current = 1;
+let current = 0;
 let busy = false;
+
+function placeStoryImages(parent) {
+    if (parent && storyImages.parentElement !== parent) {
+        parent.appendChild(storyImages);
+    }
+}
 
 function updateStoryImages(slideEl) {
     const pair = slideEl.dataset.pair;
     const tip  = slideEl.dataset.tip;
+    const tipHost = slideEl.querySelector('.slide-inner');
 
     if (pair) {
+        placeStoryImages(stage);
         storyImgA.src = `/static/img/marshmallow_experiment/aligned/${pair}a.png`;
         storyImgB.src = `/static/img/marshmallow_experiment/aligned/${pair}b.png`;
         storyImgA.style.gridColumn = '';
         storyImgB.style.display = '';
         storyBtn.innerHTML = slideEl.dataset.btnText;
         storyBtn.dataset.next = slideEl.dataset.btnNext;
-        storyImages.classList.remove('single');
+        storyImages.classList.remove('single', 'inline');
         storyImages.classList.add('visible');
     } else if (tip) {
+        placeStoryImages(tipHost);
         storyImgA.src = `/static/img/final_three/${tip}.svg`;
         storyImgB.style.display = 'none';
         if ('btnRestart' in slideEl.dataset) {
@@ -30,9 +40,10 @@ function updateStoryImages(slideEl) {
             storyBtn.innerHTML = slideEl.dataset.btnText;
             storyBtn.dataset.next = slideEl.dataset.btnNext;
         }
-        storyImages.classList.add('single', 'visible');
+        storyImages.classList.add('single', 'inline', 'visible');
     } else {
-        storyImages.classList.remove('visible', 'single');
+        placeStoryImages(stage);
+        storyImages.classList.remove('visible', 'single', 'inline');
     }
 }
 
@@ -53,7 +64,8 @@ function goTo(index, direction) {
     const from = slides[current];
     const to = slides[index];
     updateStoryImages(to);
-    if (to.id === 'slide-3') { adVideo.currentTime = 0; adVideo.play().catch(() => {}); }
+    if (to.id === 'slide-3') { adVideo.currentTime = 0; adVideo.play().catch(() => {}); startSkipCountdown(); }
+    if (from.id === 'slide-3') { clearInterval(skipCountdown); }
 
     const enterFrom = direction === 'forward' ? 'enter-from-right' : 'enter-from-left';
     const exitTo    = direction === 'forward' ? 'exit-left'         : 'exit-right';
@@ -128,6 +140,25 @@ backBtn.addEventListener('click', () => {
 
 const adVideo = document.getElementById('ad-video');
 let adStart = null;
+let skipCountdown = null;
+
+function startSkipCountdown() {
+    clearInterval(skipCountdown);
+    const btn = document.getElementById('skip-btn');
+    btn.disabled = true;
+    let n = 5;
+    btn.textContent = `Skip in ${n}...`;
+    skipCountdown = setInterval(() => {
+        n--;
+        if (n <= 0) {
+            clearInterval(skipCountdown);
+            btn.disabled = false;
+            btn.innerHTML = 'Skip &rarr;';
+        } else {
+            btn.textContent = `Skip in ${n}...`;
+        }
+    }, 1000);
+}
 
 function startAdTimer() {
     adStart = Date.now();
@@ -136,6 +167,7 @@ function startAdTimer() {
 }
 
 updateStoryImages(slides[current]);
+updateBackBtn();
 
 document.getElementById('skip-btn').addEventListener('click', () => {
     adVideo.pause();
@@ -150,4 +182,3 @@ document.getElementById('skip-btn').addEventListener('click', () => {
     const resultIndex = slides.findIndex(s => s.id === 'slide-4');
     goTo(resultIndex, 'forward');
 });
-

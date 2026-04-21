@@ -67,10 +67,48 @@ html, body {
 
 #story-images.single #story-img-a {
     grid-column: 1 / -1;
-    width: 72%;
+    width: 45%;
     max-height: 38vh;
-    justify-self: center;
+    justify-self: start;
     aspect-ratio: 500 / 360;
+}
+
+#story-images.inline {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    align-self: start;
+}
+
+#story-images.inline img {
+    width: 100%;
+    max-height: 42vh;
+}
+
+#story-images.inline #story-img-a {
+    grid-column: 1;
+    width: 100%;
+    max-height: 42vh;
+    justify-self: stretch;
+    aspect-ratio: 500 / 360;
+}
+
+#story-images.inline #story-img-b {
+    display: none;
+}
+
+#story-images.inline #story-btn {
+    grid-column: 1;
+    margin-top: 0.2em;
+    justify-self: center;
+    text-align: center;
 }
 
 /* --- transition states (set/removed by JS) --- */
@@ -97,6 +135,16 @@ html, body {
     cursor: pointer;
     border-radius: 3px;
     transition: background 0.15s, color 0.15s;
+}
+
+.skip-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.skip-btn:disabled:hover {
+    background: none;
+    color: #2a2a2a;
 }
 
 .continue-btn:hover,
@@ -229,7 +277,7 @@ html, body {
 }
 
 .tip {
-    text-align: center;
+    text-align: left;
 }
 
 .tip p {
@@ -237,4 +285,23 @@ html, body {
     color: #555;
     margin-top: 0.3em;
     margin-bottom: 0;
+}
+
+.slide[data-tip] .slide-inner {
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.slide[data-tip] .tip {
+    grid-column: 2;
+    text-align: right;
+    justify-self: end;
+}
+
+.slide[data-tip] p,
+.slide[data-tip] h3 {
+    text-align: right;
 }
